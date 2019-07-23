@@ -883,11 +883,11 @@ EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 #EXTRA_CFLAGS += -DCONFIG_P2P_IPS
 endif
 ifndef ARCH
-SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/ppc64le/powerpc/ -e s/aarch64/arm64/)
-ARCH ?= $(SUBARCH)
+#SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/ppc64le/powerpc/ -e s/aarch64/arm64/)
+#ARCH ?= $(SUBARCH)
 endif
 ifndef CROSS_COMPILE
-CROSS_COMPILE ?=
+#CROSS_COMPILE ?=
 endif
 ifndef KVER
 KVER ?= $(shell uname -r)
@@ -919,7 +919,7 @@ EXTRA_CFLAGS += -DCONFIG_CONCURRENT_MODE
 EXTRA_CFLAGS += -DCONFIG_IOCTL_CFG80211 -DRTW_USE_CFG80211_STA_EVENT
 ARCH := arm64
 KVER ?= $(shell uname -r)
-KSRC := /usr/src/linux-headers-$(KVER)-ubuntu18.04_aarch64/kernel-4.9
+KSRC := /usr/src/linux-headers-$(KVER)
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/realtek/rtl8812au/
 endif
 
@@ -1619,8 +1619,7 @@ obj-m := $(MODULE_NAME).o
 all: modules
 
 modules:
-	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd)  modules
-
+	$(MAKE) -C $(KSRC) M=$(shell pwd)  modules
 strip:
 	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
 
@@ -1640,5 +1639,5 @@ config_r:
 .PHONY: modules clean
 
 clean:
-	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd) clean
+	$(MAKE) -C $(KSRC) M=$(shell pwd) clean
 endif
