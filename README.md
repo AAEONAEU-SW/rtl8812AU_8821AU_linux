@@ -9,7 +9,7 @@ This code was forked from https://github.com/abperiasamy/rtl8812AU_8821AU_linux
 ## Validated supported device on this release:
 
 ```
-* Ogemray 802.11a/b/g/n/ac USB Wireless Adapter(Model: GWF-5M02)
+* Fangtec 802.11a/b/g/n/ac USB Wireless Adapter(Model: GWF-7M02-50-F-2.0-7-1)
 ```
 
 ## Compiling with DKMS
