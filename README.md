@@ -9,7 +9,7 @@ This code was forked from https://github.com/abperiasamy/rtl8812AU_8821AU_linux
 ## Validated supported device on this release:
 
 ```
-* Fangtec 802.11a/b/g/n/ac USB Wireless Adapter(Model: GWF-7M02-50-F-2.0-7-1)
+* Fangtec 802.11a/b/g/n/ac USB Wireless Adapter(Model: GWF-5M02)
 ```
 
 ## Compiling with DKMS
@@ -18,7 +18,7 @@ Clean the system from previous drivers if any and clone current repository
 
 ```sh
 # sudo apt purge rtl8812au-dkms
-# sudo apt install git
+# sudo apt install git build-essential dkms
 # git clone https://github.com/AAEONAEU-SW/rtl8812AU_8821AU_linux.git
 # cd rtl8812AU_8821AU_linux
 ```
